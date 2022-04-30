@@ -1,7 +1,6 @@
 //pages/index.py
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
-import mydbPromise from '../models/setcon'
 
 export default function Home({isConnected}) {
   return (
@@ -20,16 +19,17 @@ export default function Home({isConnected}) {
   )
 }
 
-export async function getServerSideProps(context) {
-  try {
-    context.req.mydb = await mydbPromise
-    return {
-      props: { isConnected: 'Yes' },
+export async function getServerSideProps(context){
+    try{
+        const module = await import('../models/setcon.js')
+        await module.default
+        return{
+            props: { isConnected: 'Yes' },
+        }
+    }catch(e){
+        console.error(e)
+        return{
+            props: { isConnected: 'No' },
+        }
     }
-  } catch (e) {
-    console.error(e)
-    return {
-      props: { isConnected: 'No' },
-    }
-  }
 }
