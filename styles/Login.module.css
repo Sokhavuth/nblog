@@ -1,0 +1,33 @@
+/* styles/Login.module.css */
+.form_wrapper{
+    background: var(--background);
+    width: 400px;
+    margin: 100px auto;
+    color: white;
+}
+
+.form_wrapper .title{
+    text-align: center;
+    font: var(--body-font);
+    font: 18px/1.5 Koulen;
+    padding: 5px;
+    border-bottom: 1px solid white;
+}
+
+.form_wrapper form{
+    display: grid;
+    grid-template-columns: 20% auto;
+    align-items: center;
+    grid-gap: 2px;
+    padding: 20px;
+}
+
+.form_wrapper form a{
+    color: white;
+    text-align: right;
+}
+
+.form_wrapper form input{
+    font: var(--body-font);
+    padding: 1px 5px;
+}
