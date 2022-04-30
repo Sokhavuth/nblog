@@ -1,16 +1,38 @@
-html,
-body {
-  padding: 0;
+/* styles/globals.css */
+:root{
+  --background: #7268a6;
+  --background-dark: #6b3074;
+  --background-light: #b6cec7;
+  --body-font: 14px/1.5 Vidaloka, OdorMeanChey;
+  --link: grey;
+  --item-listing: white;
+  --item-listing-color: grey;
+}
+
+*{
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-* {
+  padding: 0;
   box-sizing: border-box;
+}
+a{
+  text-decoration: none;
+  color: var(--link);
+}
+a:hover{
+  opacity: .7;
+}
+.region{
+  max-width: 1150px;
+  margin: 0 auto;
+}
+
+body{
+  font: var(--body-font);
+  background: var(--background-light);
+}
+
+footer{
+  text-align: center;
+  padding: 30px;
+  border-top: 1px solid grey;
 }
