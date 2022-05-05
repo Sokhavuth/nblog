@@ -90,7 +90,7 @@ export default function Ckeditor(ckeditor) {
             <input className={styles.entry} 
             type="button" value="បញ្ចូល​វីដេអូ" />
         </div>
-        <table class='viddata'></table>
+        <table className='viddata'></table>
     </div>
   )
 }
