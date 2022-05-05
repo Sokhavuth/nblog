@@ -31,14 +31,14 @@ export const getServerSideProps = withIronSessionSsr(
             return {
                 redirect: {
                     permanent: false,
-                    destination: "/admin",
+                    destination: "/admin/post",
                 },
                 props:{},
             }
         }else{
             const message = req.session.message
             if(message){
-                req.session.message = null
+                delete req.session.message
                 await req.session.save()
                 return {
                     props: {

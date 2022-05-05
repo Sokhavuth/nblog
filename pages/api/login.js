@@ -12,7 +12,7 @@ export default withIronSessionApiRoute(
                 if(user.password === req.body.password){
                     req.session.user = user
                     await req.session.save()
-                    res.redirect('/admin')
+                    res.redirect('/admin/post')
                 }else{
                     req.session.message = 'ពាក្យ​សំងាត់​មិន​ត្រឹមត្រូវ​ទេ!'
                     await req.session.save()

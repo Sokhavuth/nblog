@@ -1,0 +1,80 @@
+/*styles/admin/Index.module.css*/
+.Index .menuWrapper{
+    background: var(--background);
+    color: white;
+    padding: 7px 0;
+    border-bottom: 7px solid white;
+    margin-bottom: 20px;
+}
+
+.Index .menuWrapper .menu{
+    display: grid;
+    grid-template-columns: 25% auto 25%;
+    align-items: center;
+}
+
+.Index .menuWrapper .menu .logo{
+    font: 22px/1.5 Limonf3;
+}
+
+.Index .menuWrapper .menu .logout{
+    text-align: right;
+}
+
+.Index .menuWrapper .menu .logout a{
+    color: white;
+}
+
+.Index .menuWrapper .menu form{
+    display: grid;
+    grid-template-columns: 20% auto 15%;
+}
+
+.Index .menuWrapper .menu form input,
+.Index .menuWrapper .menu form select{
+    font: var(--body-font);
+    padding: 1px 5px;
+}
+
+.Index .main{
+    display: grid;
+    grid-template-columns: 25% auto;
+}
+
+.Index .main .sidebar{
+    background: var(--background);
+    color: white;
+    margin-right: 10px;
+    padding: 20px;
+}
+
+.Index .main .sidebar .inner{
+    display: grid;
+    grid-template-columns: 25% auto;
+    align-items: center;
+    grid-gap: 10px 10px;
+}
+
+.Index .main .sidebar .inner a{
+    color: white;
+    font: 18px/1.5 Oswald, Koulen;
+}
+
+.Index .main .sidebar .inner img{
+    width: 100%;
+}
+
+.Index .status{
+    background: var(--background);
+    text-align: center;
+    margin: 10px auto;
+    padding: 5px;
+    color: white;
+}
+
+.Index .paginate{
+    background: var(--background);
+    margin: 10px auto;
+    text-align: center;
+    padding: 5px 0 0;
+}

@@ -1,7 +1,9 @@
 //settings
 
-let settings = {}
+export default async ()=>{
+    let settings = {}
 
-settings.message = ''
+    settings.siteTitle = 'គេហទំព័រ​'
 
-export default settings
+    return settings
+}

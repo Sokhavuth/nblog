@@ -31,6 +31,10 @@ body{
   background: var(--background-light);
 }
 
+.ck-editor__editable_inline {
+  min-height: 350px;
+}
+
 footer{
   text-align: center;
   padding: 30px;

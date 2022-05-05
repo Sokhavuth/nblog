@@ -1,0 +1,16 @@
+/* styles/admin/Post.module.css */
+.title{
+    font: var(--body-font);
+    width: 100%;
+    padding: 3px 10px;
+}
+
+.wrapper{
+    display: grid;
+    grid-template-columns: 15% auto 30% 10%;
+}
+
+.entry{
+    font: var(--body-font);
+    padding: 2px 5px;
+}
