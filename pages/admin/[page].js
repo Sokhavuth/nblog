@@ -4,7 +4,6 @@ import styles from '../../styles/admin/Index.module.css'
 import settings from '../../settings.js'
 import Link from 'next/link'
 import dynamic from 'next/dynamic'
-import {useRouter} from 'next/router'
 
 import {withIronSessionSsr} from "iron-session/next"
 
@@ -15,12 +14,14 @@ export const getServerSideProps = withIronSessionSsr(
         if(ctx.req.session.user){
             if(ctx.params.page === 'post'){
                 mySettings.pageTitle = 'ទំព័រ​ការផ្សាយ'
+                mySettings.page = 'post'
             }else if(ctx.params.page === 'user'){
                 mySettings.pageTitle = 'ទំព័រ​អ្នក​ប្រើប្រាស់'
+                mySettings.page = 'user'
             }
 
             return {
-                props:mySettings,
+                props: mySettings,
             }
         }else{
             return {
@@ -41,16 +42,13 @@ export const getServerSideProps = withIronSessionSsr(
 )
 
 export default function Index(props){
-    const router = useRouter()
-    const {page} = router.query
     let ckeditor = {}
-
-    if(page === 'post'){
-        var Page = dynamic(() => import('./_post.js'),{ ssr: false })
-    }else if(page === 'user'){
-        var Page = dynamic(() => import('./_user.js'),{ ssr: false })
+    let Page = null
+    if(props.page === 'post'){
+        Page = dynamic(() => import('./_post.js'),{ ssr: false })
+    }else if(props.page === 'user'){
+        Page = dynamic(() => import('./_user.js'),{ ssr: false })
     }
-
 
     return(
         <div className={styles.Index}>

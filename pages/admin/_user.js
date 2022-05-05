@@ -1,10 +1,8 @@
 import dynamic from 'next/dynamic'
 import styles from '../../styles/admin/User.module.css'
 import Video from './_video.js'
-import {useEffect} from 'react'
-//import ClassicEditor from 'ckeditor5-custom-build/build/ckeditor'
-//import { CKEditor } from '@ckeditor/ckeditor5-react'
-
+import ClassicEditor from 'ckeditor5-custom-build/build/ckeditor'
+import { CKEditor } from '@ckeditor/ckeditor5-react'
 
 let editorConfig = {
   toolbar: ['fontfamily', 'fontsize', 'fontcolor', 'bold', 'italic',
@@ -36,9 +34,6 @@ let editorConfig = {
 }
 
 export default function Ckeditor(ckeditor) {
-  
-  const CKEditor = dynamic(() => import('@ckeditor/ckeditor5-react'),{ ssr: false })
-  const ClassicEditor = dynamic(() => import('ckeditor5-custom-build/build/ckeditor'),{ ssr: false })
 
   return (
     <div className="Ckeditor">
