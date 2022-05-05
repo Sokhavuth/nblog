@@ -71,7 +71,7 @@ export default function Ckeditor(ckeditor) {
             </div>
         </form>
 
-        <div class={styles.form}>
+        <div className={styles.form}>
             <select className={styles.entry} name='type'>
                 <option>YouTube</option>
                 <option>YouTubePlaylist</option>

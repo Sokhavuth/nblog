@@ -6,7 +6,7 @@ export default function Video(props){
 
     return(
         <>
-        <div class={styles.wrapper}>
+        <div className={styles.wrapper}>
             <select className={styles.entry} name='type'>
                 <option>YouTube</option>
                 <option>YouTubePlaylist</option>
