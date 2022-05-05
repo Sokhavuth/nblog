@@ -51,6 +51,7 @@ export default function Index(props){
         var Page = dynamic(() => import('./_user.js'),{ ssr: false })
     }
 
+
     return(
         <div className={styles.Index}>
             <Head>

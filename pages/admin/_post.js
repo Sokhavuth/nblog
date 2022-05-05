@@ -1,7 +1,8 @@
-//import ClassicEditor from 'ckeditor5-custom-build/build/ckeditor'
-import ClassicEditor from 'ckeditor5-custom-build/build/ckeditor'
-import { CKEditor } from '@ckeditor/ckeditor5-react'
+import dynamic from 'next/dynamic'
 import styles from '../../styles/admin/Post.module.css'
+import {useEffect} from 'react'
+//import ClassicEditor from 'ckeditor5-custom-build/build/ckeditor'
+//import { CKEditor } from '@ckeditor/ckeditor5-react'
 
 let editorConfig = {
   toolbar: ['fontfamily', 'fontsize', 'fontcolor', 'bold', 'italic',
@@ -33,7 +34,10 @@ let editorConfig = {
 }
 
 export default function Ckeditor(ckeditor) {
-    
+
+  const CKEditor = dynamic(() => import('@ckeditor/ckeditor5-react'),{ ssr: false })
+  const ClassicEditor = dynamic(() => import('ckeditor5-custom-build/build/ckeditor'),{ ssr: false })
+  
   return (
     <div className="Ckeditor">
         <form target='/admin/post' method='post'>
@@ -71,26 +75,7 @@ export default function Ckeditor(ckeditor) {
             </div>
         </form>
 
-        <div className={styles.form}>
-            <select className={styles.entry} name='type'>
-                <option>YouTube</option>
-                <option>YouTubePlaylist</option>
-                <option>Facebook</option>
-                <option>OK</option>
-                <option>Dailymotion</option>
-                <option>Vimeo</option>
-            </select>
-            <input className={styles.entry} name='id' type='text' 
-            placeholder="អត្តសញ្ញាណវីដេអូ" required />
-            <select className={styles.entry} name='ending'>
-                <option>ចប់​</option>
-                <option>មិន​ទាន់ចប់</option>
-                <option>~ ចប់</option>
-            </select>
-            <input className={styles.entry} 
-            type="button" value="បញ្ចូល​វីដេអូ" />
-        </div>
-        <table className='viddata'></table>
+        
     </div>
   )
 }
