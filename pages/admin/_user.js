@@ -3,6 +3,7 @@ import styles from '../../styles/admin/User.module.css'
 import Video from './_video.js'
 import ClassicEditor from 'ckeditor5-custom-build/build/ckeditor'
 import { CKEditor } from '@ckeditor/ckeditor5-react'
+import { useState, useEffect } from 'react'
 
 let editorConfig = {
   toolbar: ['fontfamily', 'fontsize', 'fontcolor', 'bold', 'italic',
@@ -40,6 +41,7 @@ export default function Ckeditor(ckeditor) {
         <form target='/admin/post' method='post'>
             <input type='text' className={styles.title} name='title' 
             placeholder='​​​​​​​​​​​​​​​​​​​​ឈ្មោះអ្នក​ប្រើប្រាស់' required />
+            
             <CKEditor
                 editor={ ClassicEditor }
                 config={ editorConfig }
@@ -56,6 +58,7 @@ export default function Ckeditor(ckeditor) {
                     console.log( 'Focus.', editor )
                 } }
             />
+              
             <input type='hidden' name='content' />
             <div className={styles.wrapper}>
                 <select className={styles.entry} name='category'>

@@ -4,6 +4,7 @@ import styles from '../../styles/admin/Index.module.css'
 import settings from '../../settings.js'
 import Link from 'next/link'
 import dynamic from 'next/dynamic'
+import {useState,useEffect} from 'react'
 
 import {withIronSessionSsr} from "iron-session/next"
 
@@ -42,7 +43,8 @@ export const getServerSideProps = withIronSessionSsr(
 )
 
 export default function Index(props){
-    let ckeditor = {}
+    
+    let ckeditor
     let Page = null
     if(props.page === 'post'){
         Page = dynamic(() => import('./_post.js'),{ ssr: false })

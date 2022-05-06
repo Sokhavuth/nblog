@@ -1,6 +1,5 @@
 import dynamic from 'next/dynamic'
 import styles from '../../styles/admin/Post.module.css'
-import {useEffect} from 'react'
 import ClassicEditor from 'ckeditor5-custom-build/build/ckeditor'
 import { CKEditor } from '@ckeditor/ckeditor5-react'
 
@@ -44,7 +43,7 @@ export default function Ckeditor(ckeditor) {
                 editor={ ClassicEditor }
                 config={ editorConfig }
                 onReady={ (editor) => {
-                    ckeditor = editor
+                    //ckeditor = editor
                 } }
                 onChange={ ( event, editor ) => {
                     const data = editor.getData()
