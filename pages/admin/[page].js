@@ -47,9 +47,9 @@ export default function Index(props){
     let ckeditor
     let Page = null
     if(props.page === 'post'){
-        Page = dynamic(() => import('./_post.js'),{ ssr: false })
+        Page = dynamic(() => import('../../views/_post.js'),{ ssr: false })
     }else if(props.page === 'user'){
-        Page = dynamic(() => import('./_user.js'),{ ssr: false })
+        Page = dynamic(() => import('../../views/_user.js'),{ ssr: false })
     }
 
     return(

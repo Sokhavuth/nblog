@@ -1,5 +1,5 @@
 //pages/admin/_video.js
-import styles from '../../styles/admin/video.module.css'
+import styles from '../styles/admin/video.module.css'
 
 
 export default function Video(props){
