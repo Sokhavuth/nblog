@@ -70,7 +70,7 @@ export default function Index(props){
                         <input type='submit' value='បញ្ជូន' />
                     </form>
                     <div className={styles.logout}>
-                        <Link href="/"><a>ទំព័រ​មុខ</a></Link> | <Link href="/logout"><a>ចេញ​ក្រៅ</a></Link>
+                        <Link href="/"><a>ទំព័រ​មុខ</a></Link> | <Link href="/api/logout"><a>ចេញ​ក្រៅ</a></Link>
                     </div>
                 </div>
             </div>

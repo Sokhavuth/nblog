@@ -1,0 +1,55 @@
+/* styles/admin/video.module.css */
+.wrapper{
+    margin-top: 5px;
+}
+
+.wrapper,.video{
+    display: grid;
+    grid-template-columns: 15% auto 30% 10%;
+}
+
+.entry,.video div{
+    font: var(--body-font);
+    padding: 2px 5px;
+}
+
+.video{
+    background: white;
+}
+
+.video div{
+    border: 1px solid grey;
+}
+
+.table{
+    width: 100%;
+    border-collapse: collapse;
+    background: rgb(232, 240, 254);
+}
+
+.table tr:nth-child(even){
+    background-color: #f2f2f2;
+}
+
+.table td{
+    text-align: center;
+    border: 1px solid;
+    padding: 5px;
+}
+
+.type{
+    width: 15%;
+}
+
+.ending{
+    width: 30%;
+}
+
+.part{
+    width: 10%;
+}
+
+.part:hover{
+    cursor: pointer;
+    opacity: .7;
+}

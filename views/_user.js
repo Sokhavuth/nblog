@@ -1,9 +1,8 @@
-import dynamic from 'next/dynamic'
 import styles from '../styles/admin/User.module.css'
-import Video from './_video.js'
 import ClassicEditor from 'ckeditor5-custom-build/build/ckeditor'
 import { CKEditor } from '@ckeditor/ckeditor5-react'
-import { useState, useEffect } from 'react'
+import Video from './_video.js'
+import {useState} from 'react'
 
 let editorConfig = {
   toolbar: ['fontfamily', 'fontsize', 'fontcolor', 'bold', 'italic',
@@ -35,6 +34,13 @@ let editorConfig = {
 }
 
 export default function Ckeditor(ckeditor) {
+  
+  const [videos, setVideos] = useState([])
+
+  function getExistVideos(){
+    const videos = document.querySelector('.existVideos')
+    return videos
+  }
 
   return (
     <div className="Ckeditor">
@@ -70,7 +76,7 @@ export default function Ckeditor(ckeditor) {
                 <input className={styles.entry} type='datetime-local' 
                 name='datetime' required />
                 <input className={styles.entry} type='hidden' 
-                name='entries' />
+                name='existVideos' />
                 <input className={styles.entry} type='submit' value='បញ្ជូន' />
                 <input type='text' disabled />
                 <input name='email' className={styles.entry} type='email' 
@@ -80,7 +86,11 @@ export default function Ckeditor(ckeditor) {
                 <input type='text' disabled/>
             </div>
         </form>
-    
+        <Video 
+            setVideos={setVideos} 
+            videos={videos} 
+            getExistVideos={getExistVideos} 
+        />
     </div>
   )
 }
