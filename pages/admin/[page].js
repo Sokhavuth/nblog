@@ -4,7 +4,6 @@ import styles from '../../styles/admin/Index.module.css'
 import settings from '../../settings.js'
 import Link from 'next/link'
 import dynamic from 'next/dynamic'
-import {useState,useEffect} from 'react'
 
 import {withIronSessionSsr} from "iron-session/next"
 

@@ -3,6 +3,7 @@ import ClassicEditor from 'ckeditor5-custom-build/build/ckeditor'
 import { CKEditor } from '@ckeditor/ckeditor5-react'
 import Video from './_video.js'
 import {useState} from 'react'
+import $ from "jquery"
 
 let editorConfig = {
   toolbar: ['fontfamily', 'fontsize', 'fontcolor', 'bold', 'italic',
@@ -33,29 +34,55 @@ let editorConfig = {
   },
 }
 
-export default function Ckeditor(ckeditor) {
+export default function Ckeditor() {
   
   const [videos, setVideos] = useState([])
+  const formData = {}
+  const [content, setContent] = useState('')
+
+  const handleSubmit = (event) => {
+    event.preventDefault()
+    formData.title = $('[name="title"]').val()
+    formData.content = content
+    formData.category = $('[name="category"]').val()
+    formData.thumb = $('[name="thumb"]').val()
+    formData.datetime = $('[name="datetime"]').val()
+    formData.videos = videos
+    formData.email = $('[name="email"]').val()
+    formData.password = $('[name="password"]').val()
+    
+    const requestOptions = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(formData)
+    }
+    
+    fetch('/api/user/create', requestOptions)
+      .then(response => response.json())
+      .then(data=>alert(data.result))
+  }
 
   function getExistVideos(){
-    const videos = document.querySelector('.existVideos')
+    const videos = $('.existVideos').val()
     return videos
   }
 
   return (
     <div className="Ckeditor">
-        <form target='/admin/post' method='post'>
+        <form target='/admin/post' method='post' onSubmit={handleSubmit}>
             <input type='text' className={styles.title} name='title' 
-            placeholder='​​​​​​​​​​​​​​​​​​​​ឈ្មោះអ្នក​ប្រើប្រាស់' required />
+              placeholder='​​​​​​​​​​​​​​​​​​​​ឈ្មោះអ្នក​ប្រើប្រាស់' required />
             
             <CKEditor
                 editor={ ClassicEditor }
                 config={ editorConfig }
+                setContent = {setContent}
                 onReady={ (editor) => {
-                    ckeditor = editor
+                  //
                 } }
                 onChange={ ( event, editor ) => {
-                    const data = editor.getData()
+                  const data = editor.getData()
+                  setContent(data)
                 } }
                 onBlur={ ( event, editor ) => {
                     console.log( 'Blur.', editor )
@@ -72,17 +99,16 @@ export default function Ckeditor(ckeditor) {
                     <option>Admin</option>
                 </select>
                 <input className={styles.entry} type='text' name='thumb' 
-                placeholder='តំណរ​ភ្ជាប់​រូប​តំណាង'required/>
+                  placeholder='តំណរ​ភ្ជាប់​រូប​តំណាង' required />
                 <input className={styles.entry} type='datetime-local' 
-                name='datetime' required />
+                  name='datetime' required />
                 <input className={styles.entry} type='hidden' 
-                name='existVideos' />
+                  name='videos'/>
                 <input className={styles.entry} type='submit' value='បញ្ជូន' />
                 <input type='text' disabled />
-                <input name='email' className={styles.entry} type='email' 
-                required  placeholder='Email'/>
-                <input name='password' className={styles.entry} type='password' 
-                required placeholder='ពាក្យ​សំងាត់'/>
+                <input name='email' className={styles.entry} type='email' required  
+                placeholder='Email'/>
+                <input name='password' className={styles.entry} type='password' />
                 <input type='text' disabled/>
             </div>
         </form>

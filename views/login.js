@@ -16,7 +16,7 @@ export default function Login(props){
                     <a>Email:</a><input type='email' name='email' required />
                     <a>Password:</a><input type='password' name='password' required />
                     <a></a><input type='submit' value='បញ្ជូន' />
-                    <a></a><div className={styles.info}>{props.message}</div>
+                    <a></a><div className={styles.info}>{props.props.message}</div>
                 </form>
             </div>
         </div>

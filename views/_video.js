@@ -4,14 +4,19 @@ import $ from 'jquery'
 
 export default function Video(props){
 
-    function createVideo(){
+    function createVideo(event){
+        event.preventDefault()
         const type = $('.type').val()
-        const vidid = $('.id').val()
+        const id = $('.id').val()
         const ending = $('.ending').val()
+        
+        if(!id){
+            return
+        }
 
         const video = {
             "type":type,
-            "id":vidid,
+            "id":id,
             "ending":ending,
         }  
 
@@ -27,7 +32,7 @@ export default function Video(props){
 
     return(
         <>
-        <div className={styles.wrapper}>
+        <form className={styles.wrapper} onSubmit={createVideo}>
             <select className={`${styles.entry} type`} name='type'>
                 <option>YouTube</option>
                 <option>YouTubePlaylist</option>
@@ -44,8 +49,8 @@ export default function Video(props){
                 <option>~ ចប់</option>
             </select>
             <input className={styles.entry} 
-            type="button" value="បញ្ចូល​វីដេអូ" onClick={createVideo}/>
-        </div>
+            type="submit" value="បញ្ចូល​វីដេអូ"/>
+        </form>
         <div className={`${styles.videos} videos`}>
             <table className={styles.table}>
             {props.videos.map((item,index,array) => (
