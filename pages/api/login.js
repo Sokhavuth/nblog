@@ -1,5 +1,5 @@
 //pages/api/login.js
-import db from '../../models/setcon.js'
+import db from '../../models/setConMongo.js'
 import {withIronSessionApiRoute} from "iron-session/next"
 
 export default withIronSessionApiRoute(

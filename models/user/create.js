@@ -1,17 +1,19 @@
 //models/users/create.js
 //npm install bcryptjs
 import bcryptjs from 'bcryptjs'
-import db from '../setcon.js'
 
-export default async (req,res)=>{
+export default async (db)=>{
     const id = Date.now() + Math.round(Math.random() * 1E9).toString()
-    const hashPassword = bcryptjs.hashSync(req.body.password, 12)
+    const hashPassword = bcryptjs.hashSync('xxxxx', 12)
 
-    req.body.id = id
-    req.body.password = hashPassword
-
+    const myrecord = [id,'xxxxx',hashPassword,'xxxxxx']
     await db
-    
 
-    res.json({result: `${req.body.title} ត្រូវ​បាន​បញ្ចូល​ក្នុង​មូលដ្ឋាន​ទិន្នន័យ`})
+    let sql = `INSERT INTO users(userid,title,password,email) VALUES(?,?,?,?)`
+    db.run(sql,myrecord, function(err){
+        if (err) {
+          return console.log(err.message)
+        }
+        console.log('User has been successfully inserted into the database!!')
+    })
 }

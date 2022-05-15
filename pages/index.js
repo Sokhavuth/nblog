@@ -2,8 +2,9 @@
 
 export async function getServerSideProps(context){
     try{
-        const module = await import('../models/setcon.js')
-        await module.default
+        let module = await import('../models/setConSqlite.js')
+        const mydb = await module.default
+
         return{
             props: { isConnected: 'Yes' },
         }
