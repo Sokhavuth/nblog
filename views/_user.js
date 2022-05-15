@@ -1,3 +1,4 @@
+//views/_user.js
 import styles from '../styles/admin/User.module.css'
 import ClassicEditor from 'ckeditor5-custom-build/build/ckeditor'
 import { CKEditor } from '@ckeditor/ckeditor5-react'
@@ -46,7 +47,7 @@ export default function Ckeditor() {
     formData.content = content
     formData.category = $('[name="category"]').val()
     formData.thumb = $('[name="thumb"]').val()
-    formData.datetime = $('[name="datetime"]').val()
+    formData.date = $('[name="datetime"]').val()
     formData.videos = videos
     formData.email = $('[name="email"]').val()
     formData.password = $('[name="password"]').val()

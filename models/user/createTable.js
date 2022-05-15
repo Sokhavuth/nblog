@@ -1,7 +1,7 @@
 //models/user/createTable.js
  
 function createTable(db){
-    let sql = `CREATE TABLE users(
+    let sql = `CREATE TABLE IF NOT EXISTS users(
         userid TEXT, 
         title TEXT,
         password TEXT,

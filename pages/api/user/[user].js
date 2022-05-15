@@ -6,4 +6,6 @@ export default async function user(req,res){
         const module = await import('../../../models/user/create.js')
         module.default(req,res)
     }
+
+    res.json({result: "It work!"})
 }
